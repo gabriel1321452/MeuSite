@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Casa do Shawarma</title>
+  <style>
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      font-size: x-large;
+    }
+
+    img.logo {
+      display: block;
+      margin: 20px auto;
+      width: 100px;
+      height: auto;
+    }
+
+   
+
+    main {
+      max-width: 700px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 25px;
+     
+    }
+
+ 
+    textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+  resize: none;
+}
+
+  select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: black;
+}
+
+
+     #imagemShawarma {
+      display: none;
+      width: 250px;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <img src="https://images.multipedidos.com.br/profiles/1d2692bb4c0b2d8d29b77b56cd1317aeac6cec6663dddbbe5d835c0f96e79876.jpg" alt="logo shawarma" class="logo">
+  <h1>Casa do Shawarma</h1>
+  <p><strong>Monte seu pedido online</strong></p>
+
+  <main>
+    <form action="pagina_destino.html" method="get">
+      <div>
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Ex: Kareem Said, etc.">
+      </div>
+      <div>
+        <label for="sabor">Escolha seu Shawarma:</label>
+        <select id="sabor" name="sabor" required onchange="mostrarImagem()">
+          <option value="">Selecione</option>
+          <option value="picanha">Picanha de Ovelha</option>
+          <option value="cordeiro">Carne de Cordeiro</option>
+          <option value="file">Filé Mignon com Alho</option>
+        </select>
+      </div>
+
+      <img id="imagemShawarma" src="" alt="Imagem do Shawarma">
+
+      <div>
+        <label>Tipo de Pão:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="pao" value="pita" required> Pão Pita</label>
+          <label><input type="radio" name="pao" value="sírio"> Pão Sírio</label>
+        </div>
+      </div>
+<br>
+
+      <div>
+        <label>Adicionais:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="extra[]" value="queijo 1"> Provolone </label>
+          <label><input type="checkbox" name="extra[]" value="queijo 2"> Queijo de cabra</label>
+          <label><input type="checkbox" name="extra[]" value="queijo 3"> Gorgonzola</label>
+        </div>
+      </div>
+<br>
+
+      <div>
+        <label for="obs">Observações:</label>
+        <textarea id="obs" name="observacoes" placeholder="Sem Mel, sem pimenta Sriracha, etc."></textarea>
+      </div>
+
+  <input type="submit" value="Enviar Pedido">
+
+    </form>
+  </main>
+
+  <script>
+    function mostrarImagem() {
+      const select = document.getElementById("sabor");
+      const img = document.getElementById("imagemShawarma");
+      const valor = select.value;
+
+      if (valor === "picanha") {
+        img.src = "https://static.ifood-static.com.br/image/upload/t_medium/pratos/0b0783b6-cfba-42e5-bed7-de3ae16b0177/202307170553_518E_i.jpg";
+        img.style.display = "block";
+      } else if (valor === "cordeiro") {
+        img.src = "https://static.ifood-static.com.br/image/upload/t_medium/pratos/0b0783b6-cfba-42e5-bed7-de3ae16b0177/202501200427_QT1W_i.jpg";
+        img.style.display = "block";
+      } else if (valor === "file") {
+        img.src = "https://static.ifood-static.com.br/image/upload/t_medium/pratos/0b0783b6-cfba-42e5-bed7-de3ae16b0177/202504160414_22LD_i.jpg";
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
